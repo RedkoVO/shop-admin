@@ -1,5 +1,5 @@
-import EditIcon from '../../../../../../../assets/images/edit.png'
-import SaveIcon from '../../../../../../../assets/images/save.png'
+import EditIcon from '../../../../assets/images/edit.png'
+import SaveIcon from '../../../../assets/images/save.png'
 
 export default () => ({
   edit: {

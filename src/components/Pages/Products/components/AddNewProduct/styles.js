@@ -23,10 +23,6 @@ export default () => ({
     backgroundColor: '#fff',
     border: '1px solid #ccc'
   },
-  select: {
-    width: '300px',
-    marginBottom: '20px'
-  },
   submit: {
     width: '150px',
     margin: '0 auto',

@@ -39,7 +39,7 @@ export default () => ({
   id: {
     width: '50px'
   },
-  email: {
+  price: {
     width: '300px'
   },
   username: {
@@ -48,8 +48,12 @@ export default () => ({
   created: {
     width: '300px'
   },
-  avatar: {
-    width: '40px'
+  image: {
+    width: '40px',
+
+    '& img': {
+      width: '100%'
+    }
   },
   showMoreIcon: {
     width: '20px',

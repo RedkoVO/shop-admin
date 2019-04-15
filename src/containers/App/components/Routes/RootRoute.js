@@ -5,31 +5,21 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 import RoutePage from '../RoutePage/RoutePage'
 import Auth from '../../../Auth'
 import Admins from '../../../Pages/Admins'
-import Users from '../../../Pages/Users'
 import Dashboard from '../../../Pages/Dashboard'
+import Products from '../../../Pages/Products'
 
-import withToken from '../../../../hocs/withToken'
+import withCheckAuth from '../../../../hocs/withCheckAuth'
 
 const RootRoute = props => {
-  const { location, /* token */ } = props
-
-  const tmpToken = 'yyy'
+  const { location } = props
 
   return (
     <Switch location={location}>
-      {tmpToken ? (
-        <Redirect exact from="/login" to="/" />
-      ) : (
-        <Redirect exact from="/" to="/login" />
-      )}
+      <Route path={`/login`} component={Auth} />
 
-      {!tmpToken && <Route path={`/login`} component={Auth} />}
-
-      {/* {token && <RoutePage path={`/`} component={Dashboard} />} */}
-      {tmpToken && <RoutePage path={`/users`} component={Users} />}
-      {tmpToken && <RoutePage path={`/admins`} component={Admins} />}
-
-      {tmpToken && <RoutePage path={`/`} component={Dashboard} />}
+      <RoutePage path={`/admins`} component={Admins} />
+      <RoutePage path={`/products`} component={Products} />
+      <RoutePage path={`/`} component={Dashboard} />
 
       <Redirect to="/" />
     </Switch>
@@ -38,6 +28,6 @@ const RootRoute = props => {
 
 export default compose(
   withRouter,
-  withToken,
+  withCheckAuth,
   pure
 )(RootRoute)

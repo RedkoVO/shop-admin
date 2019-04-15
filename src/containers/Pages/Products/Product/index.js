@@ -3,16 +3,17 @@ import { withHandlers, withState, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
-import User from '../../../../components/Pages/Users/components/User'
+import Product from '../../../../components/Pages/Products/components/Product'
 
-const FORM_NAME = 'user'
+const FORM_NAME = 'product'
 
 const mapStateToProps = (state, ownProps) => ({
   form: `${FORM_NAME}-${ownProps.id}`,
   initialValues: {
-    email: ownProps.data.email,
-    username: ownProps.data.username,
-    password: ownProps.data.password
+    title: ownProps.data.title,
+    price: ownProps.data.price,
+    oldPrice: ownProps.data.oldPrice,
+    description: ownProps.data.description
   }
 })
 
@@ -31,4 +32,4 @@ export default compose(
       })
   }),
   pure
-)(User)
+)(Product)

@@ -12,12 +12,12 @@ const Auth = ({ classes, onSubmit }) => (
     <Form className={classes.form} onSubmit={onSubmit}>
       <div className={classes.title}>Login</div>
       <Field
-        id="login"
-        name="login"
+        id="email"
+        name="email"
         type="text"
         className={classes.field}
         component={InputField}
-        placeholder="Login"
+        placeholder="Email"
       />
       <Field
         id="password"

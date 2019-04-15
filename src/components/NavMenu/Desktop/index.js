@@ -12,31 +12,56 @@ const NavMenu = ({ classes, isShowMenu }) => (
   <nav className={cn(classes.root, { hiddenMenu: !isShowMenu })}>
     <ul className={classes.navList}>
       <li>
-        <NavLink to={'/'} exact className={classes.menuItem} activeClassName="active">
+        <NavLink
+          to={'/'}
+          exact
+          className={classes.menuItem}
+          activeClassName="active"
+        >
           <DashboardLogo className={classes.menuIcon} />
           Dashboard
         </NavLink>
       </li>
       <li>
-        <NavLink to={'/admins'} exact className={classes.menuItem} activeClassName="active">
+        <NavLink
+          to={'/admins'}
+          exact
+          className={classes.menuItem}
+          activeClassName="active"
+        >
           <DashboardLogo className={classes.menuIcon} />
           Admins
         </NavLink>
       </li>
-      <li>
-        <NavLink to={'/users'} exact className={classes.menuItem} activeClassName="active">
+      {/* <li>
+        <NavLink
+          to={'/users'}
+          exact
+          className={classes.menuItem}
+          activeClassName="active"
+        >
           <DashboardLogo className={classes.menuIcon} />
           Users
         </NavLink>
-      </li>
+      </li> */}
       <li>
-        <NavLink to={'/#'} exact className={classes.menuItem} activeClassName="active">
+        <NavLink
+          to={'/products'}
+          exact
+          className={classes.menuItem}
+          activeClassName="active"
+        >
           <DashboardLogo className={classes.menuIcon} />
-          Settings
+          Products
         </NavLink>
       </li>
       <li>
-        <NavLink to={'/#'} exact className={classes.menuItem} activeClassName="active">
+        <NavLink
+          to={'/#'}
+          exact
+          className={classes.menuItem}
+          activeClassName="active"
+        >
           <DashboardLogo className={classes.menuIcon} />
           Contacts
         </NavLink>

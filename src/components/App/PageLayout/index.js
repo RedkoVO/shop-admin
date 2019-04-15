@@ -32,9 +32,9 @@ export const PageLayout = ({
 }
 
 PageLayout.propTypes = {
-  header: PropTypes.func.isRequired,
-  navMenu: PropTypes.func.isRequired,
-  content: PropTypes.func.isRequired
+  header: PropTypes.object.isRequired,
+  navMenu: PropTypes.func.isRequired
+  // content: PropTypes.func.isRequired
   // footer: PropTypes.func.isRequired
 }
 

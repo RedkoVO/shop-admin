@@ -70,5 +70,9 @@ export default theme => ({
     '& + $iOSBar': {
       opacity: 1
     }
+  },
+  logout: {
+    marginLeft: '30px',
+    cursor: 'pointer'
   }
 })

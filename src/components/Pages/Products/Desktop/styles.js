@@ -2,7 +2,7 @@ export default () => ({
   root: {
     paddingLeft: '20px'
   },
-  headerUsers: {
+  headerProducts: {
     position: 'relative',
     padding: '0 10px',
     marginBottom: '15px',
@@ -17,7 +17,7 @@ export default () => ({
     alignItems: 'center',
     minHeight: '60px',
   },
-  addUser: {
+  addProduct: {
     padding: '10px 20px',
     color: '#fff',
     borderRadius: '20px',

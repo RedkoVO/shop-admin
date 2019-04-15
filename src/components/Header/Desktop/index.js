@@ -7,7 +7,7 @@ import Avatar from '../../../assets/images/user-avatar.jpg'
 
 import styles from './styles'
 
-const Header = ({ classes, handleToogleMenu, isShowMenu }) => (
+const Header = ({ classes, handleToogleMenu, isShowMenu, handleLogout }) => (
   <nav className={classes.root}>
     <div className={classes.toggleMenuBlock}>
       <div className={classes.wrCheckbox}>
@@ -31,6 +31,9 @@ const Header = ({ classes, handleToogleMenu, isShowMenu }) => (
         <img src={Avatar} alt="Avatar" />
       </div>
       <div className={classes.name}>Jonh Doe</div>
+      <div className={classes.logout} onClick={() => handleLogout()}>
+        Logout
+      </div>
     </div>
   </nav>
 )
@@ -38,7 +41,8 @@ const Header = ({ classes, handleToogleMenu, isShowMenu }) => (
 Header.propTypes = {
   classes: PropTypes.object,
   isShowMenu: PropTypes.bool.isRequired,
-  handleToogleMenu: PropTypes.func.isRequired
+  handleToogleMenu: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func.isRequired
 }
 
 export default withStyles(styles)(Header)
