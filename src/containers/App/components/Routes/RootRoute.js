@@ -5,7 +5,6 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 import RoutePage from '../RoutePage/RoutePage'
 import Auth from '../../../Auth'
 import Admins from '../../../Pages/Admins'
-import Dashboard from '../../../Pages/Dashboard'
 import Products from '../../../Pages/Products'
 
 import withCheckAuth from '../../../../hocs/withCheckAuth'
@@ -18,8 +17,7 @@ const RootRoute = props => {
       <Route path={`/login`} component={Auth} />
 
       <RoutePage path={`/admins`} component={Admins} />
-      <RoutePage path={`/products`} component={Products} />
-      <RoutePage path={`/`} component={Dashboard} />
+      <RoutePage path={`/`} component={Products} />
 
       <Redirect to="/" />
     </Switch>

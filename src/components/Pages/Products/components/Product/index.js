@@ -10,15 +10,27 @@ import InputFileUpload from '../../../../App/Form/InputFileUpload'
 import EditableField from '../../../../App/Form/EditableField'
 
 import ShowMoreIcon from '../../../../../assets/images/show_more.png'
+import RemoveIcon from '../../../../../assets/images/remove.png'
 
 import styles from './styles'
 
-const Product = ({ classes, data, handleShowMore, isShowMore, onSubmit }) => (
+const Product = ({
+  classes,
+  data,
+  isConfirmRemoveProduct,
+  handleShowMore,
+  handleRemoveProduct,
+  handleUpdateImages,
+  handleDeleteImage,
+  handleConfirmRemoveProduct,
+  isShowMore,
+  onSubmit
+}) => (
   <div className={classes.root} key={data.id}>
     <Form className={classes.form} onSubmit={onSubmit}>
       <div className={classes.shortContent}>
         <div className={classes.id}>id: {data.id}</div>
-        <div className={cn(classes.username, classes.alowEdit)}>
+        <div className={cn(classes.title, classes.alowEdit)}>
           title:
           <EditableField
             text={data.title}
@@ -40,6 +52,7 @@ const Product = ({ classes, data, handleShowMore, isShowMore, onSubmit }) => (
             component={InputField}
             placeholder="Price"
             className={classes.fieldEdit}
+            inputStyle={classes.fieldPrice}
           />
         </div>
         <div className={cn(classes.price, classes.alowEdit)}>
@@ -52,17 +65,36 @@ const Product = ({ classes, data, handleShowMore, isShowMore, onSubmit }) => (
             component={InputField}
             placeholder="Old price"
             className={classes.fieldEdit}
+            inputStyle={classes.fieldPrice}
           />
         </div>
         <div className={classes.image}>
           <img src={data.images[0]} alt="" />
         </div>
-        <img
-          src={ShowMoreIcon}
-          className={classes.showMoreIcon}
-          onClick={() => handleShowMore()}
-          alt="show more"
-        />
+
+        <div className={classes.wrRightButtons}>
+          {isConfirmRemoveProduct ? (
+            <div className={classes.wrConfirmationRemove}>
+              <div onClick={() => handleRemoveProduct(data.id)}>DELETE</div>
+              <div onClick={() => handleConfirmRemoveProduct()}>CANCEL</div>
+            </div>
+          ) : (
+            <img
+              src={RemoveIcon}
+              className={classes.remove}
+              onClick={() => handleRemoveProduct(data.id)}
+              onClick={() => handleConfirmRemoveProduct()}
+              alt="remove"
+            />
+          )}
+
+          <img
+            src={ShowMoreIcon}
+            className={classes.showMoreIcon}
+            onClick={() => handleShowMore()}
+            alt="show more"
+          />
+        </div>
       </div>
 
       {isShowMore && (
@@ -76,16 +108,34 @@ const Product = ({ classes, data, handleShowMore, isShowMore, onSubmit }) => (
               type="text"
               component={InputField}
               placeholder="Description"
-              className={classes.fieldEdit}
+              className={classes.fieldEditDescription}
             />
           </div>
           <div className={cn(classes.moreItem, classes.alowEdit)}>
-            <span>description:</span>
+            <span>images:</span>
+
+            {data.images &&
+              data.images.map((item, index) => (
+                <div className={classes.wrImageItem} key={index}>
+                  <img className={classes.imagesItem} src={item} alt="" />
+
+                  <img
+                    src={RemoveIcon}
+                    className={classes.removeItemImage}
+                    onClick={() => handleDeleteImage(item)}
+                    alt="remove"
+                  />
+                </div>
+              ))}
+
             <Field
-              name="image"
+              name="images"
               type="file"
               component={InputFileUpload}
               className={classes.file}
+              onChange={e => handleUpdateImages(e)}
+              multiple
+              accept=".jpg, .png, .jpeg"
             />
           </div>
         </div>
@@ -97,8 +147,13 @@ const Product = ({ classes, data, handleShowMore, isShowMore, onSubmit }) => (
 Product.propTypes = {
   classes: PropTypes.object,
   data: PropTypes.object,
+  isConfirmRemoveProduct: PropTypes.bool,
   isShowMore: PropTypes.bool.isRequired,
   handleShowMore: PropTypes.func.isRequired,
+  handleRemoveProduct: PropTypes.func.isRequired,
+  handleDeleteImage: PropTypes.func.isRequired,
+  handleUpdateImages: PropTypes.func.isRequired,
+  handleConfirmRemoveProduct: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 

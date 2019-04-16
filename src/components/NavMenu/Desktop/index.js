@@ -11,18 +11,7 @@ import styles from './styles'
 const NavMenu = ({ classes, isShowMenu }) => (
   <nav className={cn(classes.root, { hiddenMenu: !isShowMenu })}>
     <ul className={classes.navList}>
-      <li>
-        <NavLink
-          to={'/'}
-          exact
-          className={classes.menuItem}
-          activeClassName="active"
-        >
-          <DashboardLogo className={classes.menuIcon} />
-          Dashboard
-        </NavLink>
-      </li>
-      <li>
+      {/* <li>
         <NavLink
           to={'/admins'}
           exact
@@ -32,7 +21,7 @@ const NavMenu = ({ classes, isShowMenu }) => (
           <DashboardLogo className={classes.menuIcon} />
           Admins
         </NavLink>
-      </li>
+      </li> */}
       {/* <li>
         <NavLink
           to={'/users'}
@@ -46,7 +35,7 @@ const NavMenu = ({ classes, isShowMenu }) => (
       </li> */}
       <li>
         <NavLink
-          to={'/products'}
+          to={'/'}
           exact
           className={classes.menuItem}
           activeClassName="active"

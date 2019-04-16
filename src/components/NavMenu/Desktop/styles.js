@@ -1,6 +1,8 @@
 export default () => ({
   root: {
     position: 'fixed',
+    paddingTop: '70px',
+    top: 0,
     left: 0,
     width: '250px',
     height: '100%',

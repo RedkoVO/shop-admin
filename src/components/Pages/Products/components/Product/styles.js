@@ -36,14 +36,26 @@ export default () => ({
     alignItems: 'center',
     marginLeft: '5px'
   },
+  fieldPrice: {
+    width: '70px'
+  },
+  fieldEditDescription: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '5px',
+
+    '& span': {
+      width: '100%'
+    }
+  },
   id: {
     width: '50px'
   },
   price: {
-    width: '300px'
+    width: '230px'
   },
-  username: {
-    width: '245px'
+  title: {
+    width: '320px'
   },
   created: {
     width: '300px'
@@ -55,10 +67,20 @@ export default () => ({
       width: '100%'
     }
   },
+  wrRightButtons: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'absolute',
+    right: '10px'
+  },
+  remove: {
+    width: '20px',
+    marginRight: '20px',
+    cursor: 'pointer'
+  },
   showMoreIcon: {
     width: '20px',
-    position: 'absolute',
-    right: '20px',
+    right: '50px',
     cursor: 'pointer'
   },
   moreContent: {
@@ -71,6 +93,34 @@ export default () => ({
     '& span': {
       display: 'inline-block',
       minWidth: '125px'
+    }
+  },
+  wrImageItem: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: '20px'
+  },
+  imagesItem: {
+    width: '40px'
+  },
+  removeItemImage: {
+    width: '20px',
+    marginLeft: '3px'
+  },
+  wrConfirmationRemove: {
+    marginRight: '20px',
+
+    '& div': {
+      marginBottom: '5px',
+      cursor: 'pointer',
+
+      '&:first-child': {
+        color: 'red'
+      },
+
+      '&:hover': {
+        textDecoration: 'underline'
+      }
     }
   }
 })

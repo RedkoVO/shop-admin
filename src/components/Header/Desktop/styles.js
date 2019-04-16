@@ -1,9 +1,11 @@
 export default theme => ({
   root: {
+    position: 'relative',
     display: 'flex',
     justifyContent: 'space-between',
     height: '70px',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    zIndex: 2
   },
   toggleMenuBlock: {
     display: 'flex',

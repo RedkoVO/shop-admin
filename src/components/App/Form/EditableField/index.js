@@ -12,6 +12,7 @@ const EditableField = ({
   hendleEdit,
   isEditable,
   className,
+  inputStyle,
   text,
   fieldId,
   fieldName,
@@ -28,12 +29,12 @@ const EditableField = ({
           type={type}
           component={component}
           placeholder={placeholder}
-          className={className}
+          className={inputStyle}
         />
         <button type="submit" className={classes.submit} />
       </React.Fragment>
     ) : (
-      <React.Fragment>{text}</React.Fragment>
+      <span>{text}</span>
     )}
 
     <div className={classes.edit} onClick={() => hendleEdit()} />
@@ -42,6 +43,7 @@ const EditableField = ({
 
 EditableField.propTypes = {
   className: PropTypes.string,
+  inputStyle: PropTypes.string,
   text: PropTypes.string,
   fieldId: PropTypes.string.isRequired,
   fieldName: PropTypes.string.isRequired,

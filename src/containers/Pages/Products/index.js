@@ -1,9 +1,9 @@
 import compose from 'recompose/compose'
 import { withState, withHandlers, lifecycle, pure } from 'recompose'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
+import { reduxForm, reset } from 'redux-form'
 
-import { fetchProducts } from '../../../redux/actions/products'
+import { fetchProducts, createProduct } from '../../../redux/actions/products'
 
 import Products from '../../../components/Pages/Products/Desktop'
 
@@ -47,29 +47,43 @@ export default compose(
     form: FORM_NAME
   }),
   withState('isAddProduct', 'setAddProduct', false),
-  // withState('imagesUploaded', 'setImage', ''),
+  withState('imagesUploaded', 'setImage', []),
   withHandlers({
     handleUploadImage: ({ setImage }) => e => {
-      // let reader = new FileReader()
-      // reader.readAsDataURL(e.target.files[0])
-      // reader.onload = () => {
-      //   setImage(reader.result)
-      // }
-      // reader.onerror = (error) => {
-      //   console.log('Error upload file:', error)
-      // }
+      const images = []
+
+      Array.from(e.target.files).forEach(item => {
+        images.push(item)
+      })
+
+      setImage(images)
     },
+
     handleAddProduct: ({ setAddProduct, isAddProduct }) => () => {
       setAddProduct(!isAddProduct)
     },
 
-    onSubmit: ({ handleSubmit }) =>
+    onSubmit: ({ imagesUploaded, dispatch, handleSubmit, setAddProduct }) =>
       handleSubmit(variables => {
         const data = {
-          // image: imagesUploaded,
-          ...variables
+          title: variables.title,
+          price: variables.price,
+          oldPrice: variables.oldPrice,
+          description: variables.description,
+          images: imagesUploaded
         }
-        console.log('data', data)
+
+        dispatch(createProduct(data))
+          .then(res => {
+            if (res.success) {
+              dispatch(fetchProducts())
+              setAddProduct(false)
+              dispatch(reset(FORM_NAME))
+            }
+          })
+          .catch(err => {
+            console.log('Error create:', err)
+          })
       })
   }),
   lifecycle({

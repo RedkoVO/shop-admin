@@ -48,7 +48,7 @@ const AddNewAdmin = ({ classes, onSubmit, handleUploadImage }) => (
       />
 
       <Field
-        name="image"
+        name="images"
         type="file"
         component={InputFileUpload}
         className={classes.file}
@@ -56,8 +56,6 @@ const AddNewAdmin = ({ classes, onSubmit, handleUploadImage }) => (
         multiple
         accept=".jpg, .png, .jpeg"
       />
-
-      {/* <input type="file" accept=".jpg, .png, .jpeg" onChange={(e) => handleUploadImage(e)} /> */}
 
       <button type="submit" className={classes.submit}>
         Save
