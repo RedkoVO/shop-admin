@@ -22,20 +22,20 @@ const NavMenu = ({ classes, isShowMenu }) => (
           Admins
         </NavLink>
       </li> */}
-      {/* <li>
+      <li>
         <NavLink
-          to={'/users'}
+          to={'/'}
           exact
           className={classes.menuItem}
           activeClassName="active"
         >
           <DashboardLogo className={classes.menuIcon} />
-          Users
+          Orders
         </NavLink>
-      </li> */}
+      </li>
       <li>
         <NavLink
-          to={'/'}
+          to={'/products'}
           exact
           className={classes.menuItem}
           activeClassName="active"

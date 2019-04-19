@@ -4,3 +4,5 @@ export const CREATE_PRODUCT = 'CREATE_PRODUCT'
 export const CHECK_AUTH = 'CHECK_AUTH'
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT = 'LOGOUT'
+
+export const FETCH_ORDERS = 'FETCH_ORDERS'

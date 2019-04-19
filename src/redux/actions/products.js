@@ -1,6 +1,5 @@
 import { FETCH_PRODUCTS } from './types'
 import axios from 'axios'
-// import qs from 'qs'
 
 import gC from '../../constants'
 

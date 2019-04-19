@@ -1,3 +1,3 @@
 export default {
-  API_URL: 'http://admin.shop.sophiaiq.com'
+  API_URL: 'https://admin.sophiaiq.com'
 }
