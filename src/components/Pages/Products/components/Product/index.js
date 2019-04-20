@@ -6,7 +6,6 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 import InputField from '../../../../App/Form/InputField'
 import InputFileUpload from '../../../../App/Form/InputFileUpload'
-
 import EditableField from '../../../../App/Form/EditableField'
 
 import ShowMoreIcon from '../../../../../assets/images/show_more.png'
@@ -82,7 +81,6 @@ const Product = ({
             <img
               src={RemoveIcon}
               className={classes.remove}
-              onClick={() => handleRemoveProduct(data.id)}
               onClick={() => handleConfirmRemoveProduct()}
               alt="remove"
             />

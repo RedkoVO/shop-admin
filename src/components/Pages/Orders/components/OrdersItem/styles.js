@@ -1,6 +1,6 @@
 import EditIcon from '../../../../../assets/images/edit.png'
 
-export default () => ({
+export default theme => ({
   root: {
     position: 'relative',
     padding: '0 10px',
@@ -15,7 +15,16 @@ export default () => ({
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'nowrap',
-    minHeight: '60px'
+    minHeight: '60px',
+
+    [theme.breakpoints.down('lg')]: {
+      alignItems: 'start',
+      flexDirection: 'column'
+    },
+
+    '& .field': {
+      padding: '10px 0'
+    }
   },
   edit: {
     width: '15px',
@@ -27,28 +36,69 @@ export default () => ({
     backgroundPosition: 0,
     cursor: 'pointer'
   },
+  alowEdit: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  fieldEdit: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '5px'
+  },
   id: {
     width: '50px'
   },
   email: {
-    width: '330px'
+    width: '300px',
+
+    [theme.breakpoints.down('lg')]: {
+      width: 'inherit'
+    }
   },
   phone: {
-    width: '230px'
+    width: '230px',
+
+    [theme.breakpoints.down('lg')]: {
+      width: 'inherit'
+    }
   },
   name: {
-    width: '265px'
+    width: '240px',
+
+    [theme.breakpoints.down('lg')]: {
+      width: 'inherit'
+    }
   },
   wrRightButtons: {
     display: 'flex',
     alignItems: 'center',
     position: 'absolute',
-    right: '10px'
+    right: '10px',
+
+    [theme.breakpoints.down('lg')]: {
+      top: '23px'
+    }
   },
   remove: {
     width: '20px',
     marginRight: '20px',
     cursor: 'pointer'
+  },
+  wrConfirmationRemove: {
+    marginRight: '20px',
+
+    '& div': {
+      marginBottom: '5px',
+      cursor: 'pointer',
+
+      '&:first-child': {
+        color: 'red'
+      },
+
+      '&:hover': {
+        textDecoration: 'underline'
+      }
+    }
   },
   showMoreIcon: {
     width: '20px',

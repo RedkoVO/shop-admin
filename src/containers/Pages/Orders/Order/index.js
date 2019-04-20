@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { getOrder } from '../../../../redux/actions/orders'
 
-import Product from '../../../../components/Pages/Orders/components/Order'
+import Order from '../../../../components/Pages/Orders/components/Order'
 
 export default compose(
   connect(),
@@ -25,4 +25,4 @@ export default compose(
     }
   }),
   pure
-)(Product)
+)(Order)

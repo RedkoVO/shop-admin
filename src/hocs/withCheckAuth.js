@@ -24,23 +24,6 @@ export default compose(
         .catch(err => {
           console.log('Error check', err)
         })
-    },
-    // componentDidUpdate(prevProps) {
-    //   const {checkAuth, history} = this.props
-
-    //   console.log('checkAuth', checkAuth)
-    //   console.log('prevProps', prevProps.checkAuth)
-
-    //   // console.log('isEqual', !isEqual(checkAuth, prevProps.checkAuth))
-
-    //   // if (!isEqual(checkAuth, prevProps.checkAuth)) {
-    //   //   console.log('checkAuth.success !== prevProps.checkAuth.success')
-    //   //   if (checkAuth.success) {
-    //   //     history.push('/')
-    //   //   } else {
-    //   //     history.push('/login')
-    //   //   }
-    //   // }
-    // }
+    }
   })
 )

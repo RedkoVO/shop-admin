@@ -37,7 +37,7 @@ export const createFetchProductsSuccess = data => {
 }
 
 /* CREATE PRODUCT */
-export const createProduct = data => dispatch => {
+export const createProduct = data => () => {
   const token = localStorage.getItem('token')
   const bodyFormData = new FormData()
   bodyFormData.set('title', data.title)
@@ -45,10 +45,10 @@ export const createProduct = data => dispatch => {
   bodyFormData.set('oldPrice', data.oldPrice)
   bodyFormData.set('description', data.description)
 
-  data.images.map((item, index) => {
+  data.images.forEach((item, index) => {
     bodyFormData.set(`images[${index}]`, item)
   })
-  
+
   return axios({
     method: 'post',
     headers: {
@@ -69,7 +69,7 @@ export const createProduct = data => dispatch => {
 }
 
 /* UPDATE PRODUCT */
-export const updateProduct = data => dispatch => {
+export const updateProduct = data => () => {
   const token = localStorage.getItem('token')
   const bodyFormData = new FormData()
   bodyFormData.set('id', data.id)
@@ -119,11 +119,11 @@ export const removeProduct = id => dispatch => {
 }
 
 /* UPDATE IMAGES PRODUCT */
-export const updateImagesProduct = (images, id) => dispatch => {
+export const updateImagesProduct = (images, id) => () => {
   const token = localStorage.getItem('token')
   const bodyFormData = new FormData()
 
-  images.map((item, index) => {
+  images.forEach((item, index) => {
     bodyFormData.set(`images[${index}]`, item)
   })
   

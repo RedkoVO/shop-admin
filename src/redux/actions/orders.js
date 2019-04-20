@@ -34,6 +34,54 @@ export const createFetchOrdersSuccess = data => {
   }
 }
 
+/* UPDATE ORDER */
+export const updateOrder = (data, id) => async () => {
+  const token = localStorage.getItem('token')
+  // const bodyFormData = new FormData()
+  // bodyFormData.set('name', data.name)
+  // bodyFormData.set('email', data.email)
+  // bodyFormData.set('phone', data.phone)
+
+  try {
+    const res = await axios({
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        // 'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        token: token ? token : ''
+      },
+      // data: bodyFormData,
+      data: data,
+      url: `${gC.API_URL}/api/orders?id=${id}`
+    })
+    return res.data
+  } catch (error) {
+    console.log('UPDATE_ORDER error', error)
+  }
+}
+
+/* REMOVE ORDER */
+export const removeOrder = id => async () => {
+  const token = localStorage.getItem('token')
+
+  try {
+    const res = await axios({
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        http_x_rest_method: 'DELETE',
+        token: token ? token : ''
+      },
+      url: `${gC.API_URL}/api/orders?id=${id}`
+    })
+    return res.data
+  } catch (error) {
+    console.log('REMOVE_ORDER error', error)
+  }
+}
+
 /* GET ORDER */
 export const getOrder = id => async () => {
   const token = localStorage.getItem('token')

@@ -1,36 +1,85 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import compose from 'recompose/compose'
-import { pure, withState, withHandlers } from 'recompose'
+import { Form } from 'redux-form'
+import cn from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 import Order from '../../../../../containers/Pages/Orders/Order'
+import InputField from '../../../../App/Form/InputField'
+import EditableField from '../../../../App/Form/EditableField'
 
 import ShowMoreIcon from '../../../../../assets/images/show_more.png'
 import RemoveIcon from '../../../../../assets/images/remove.png'
 
 import styles from './styles'
 
-const OrdersItem = ({ classes, data, isShowMoreInfo, handleShowMore }) => (
+const OrdersItem = ({
+  classes,
+  data,
+  isShowMoreInfo,
+  isConfirmRemoveOrder,
+  handleShowMore,
+  handleRemoveOrder,
+  handleConfirmRemoveOrder,
+  onSubmit,
+  isMiniDisplay
+}) => (
   <div className={classes.root} key={data.id}>
-    <div className={classes.shortContent}>
-      <div className={classes.id}>id: {data.id}</div>
-      <div className={classes.name}>name: {data.name}</div>
-      <div className={classes.email}>email: {data.email}</div>
-      <div className={classes.phone}>phone: {data.phone}</div>
+    <Form className={classes.shortContent} onSubmit={onSubmit}>
+      <div className={cn(classes.id, 'field')}>
+        {isMiniDisplay && 'id:'} {data.id}
+      </div>
+
+      <div className={cn(classes.name, classes.alowEdit, 'field')}>
+        {isMiniDisplay && 'name:'}
+        <EditableField
+          text={data.name}
+          fieldId="name"
+          fieldName="name"
+          type="text"
+          component={InputField}
+          placeholder="Name"
+          className={classes.fieldEdit}
+        />
+      </div>
+
+      <div className={cn(classes.email, classes.alowEdit, 'field')}>
+        {isMiniDisplay && 'email:'}
+        <EditableField
+          text={data.email}
+          fieldId="email"
+          fieldName="email"
+          type="email"
+          component={InputField}
+          placeholder="Email"
+          className={classes.fieldEdit}
+        />
+      </div>
+
+      <div className={cn(classes.phone, classes.alowEdit, 'field')}>
+        {isMiniDisplay && 'phone:'}
+        <EditableField
+          text={data.phone}
+          fieldId="phone"
+          fieldName="phone"
+          type="text"
+          component={InputField}
+          placeholder="Phone"
+          className={classes.fieldEdit}
+        />
+      </div>
 
       <div className={classes.wrRightButtons}>
-        {false ? (
+        {isConfirmRemoveOrder ? (
           <div className={classes.wrConfirmationRemove}>
-            {/* <div onClick={() => handleRemoveProduct(data.id)}>DELETE</div> */}
-            {/* <div onClick={() => handleConfirmRemoveProduct()}>CANCEL</div> */}
+            <div onClick={() => handleRemoveOrder(data.id)}>DELETE</div>
+            <div onClick={() => handleConfirmRemoveOrder()}>CANCEL</div>
           </div>
         ) : (
           <img
             src={RemoveIcon}
             className={classes.remove}
-            // onClick={() => handleRemoveProduct(data.id)}
-            // onClick={() => handleConfirmRemoveProduct()}
+            onClick={() => handleConfirmRemoveOrder()}
             alt="remove"
           />
         )}
@@ -42,7 +91,7 @@ const OrdersItem = ({ classes, data, isShowMoreInfo, handleShowMore }) => (
           alt="show more"
         />
       </div>
-    </div>
+    </Form>
 
     {isShowMoreInfo && (
       <div className={classes.moreContent}>
@@ -58,16 +107,11 @@ OrdersItem.propTypes = {
   classes: PropTypes.object,
   data: PropTypes.object,
   isShowMoreInfo: PropTypes.bool,
-  handleShowMore: PropTypes.func
+  isConfirmRemoveOrder: PropTypes.bool,
+  handleShowMore: PropTypes.func,
+  onSubmit: PropTypes.func,
+  handleRemoveOrder: PropTypes.func,
+  handleConfirmRemoveOrder: PropTypes.func
 }
 
-export default compose(
-  withStyles(styles),
-  withState('isShowMoreInfo', 'setShowMore', false),
-  withHandlers({
-    handleShowMore: ({ isShowMoreInfo, setShowMore }) => () => {
-      setShowMore(!isShowMoreInfo)
-    }
-  }),
-  pure
-)(OrdersItem)
+export default withStyles(styles)(OrdersItem)

@@ -11,16 +11,16 @@ const Order = ({ classes, orderData }) => (
         <div className={classes.wrOrderItem} key={item.id}>
           <div>id: {item.id}</div>
           <div>quantity: {item.quantity}</div>
-          --
           {item.product && (
             <div className={classes.wrProduct}>
               <div>title: {item.product.title}</div>
               <div>images: {item.product.images[0]}</div>
               <div>price: {item.product.price}</div>
               <div>description: {item.product.description}</div>
+              <div className={classes.underlineProduct} />
             </div>
           )}
-          -----------------------
+          <div className={classes.underline} />
         </div>
       ))}
   </div>

@@ -1,4 +1,4 @@
-import { FETCH_ORDERS, GET_ORDERS } from '../actions/types'
+import { FETCH_ORDERS } from '../actions/types'
 
 const initialState = {
   orders: []
