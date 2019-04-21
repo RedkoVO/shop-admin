@@ -13,7 +13,11 @@ export default theme => ({
     position: 'relative',
     width: '250px',
     height: '100%',
-    backgroundColor: '#263544'
+    backgroundColor: '#263544',
+
+    [theme.breakpoints.down('sm')]: {
+      width: '60px'
+    }
   },
   user: {
     display: 'flex',

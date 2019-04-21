@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cn from 'classnames'
 
 import DefaultHeader from '../../../containers/Header'
-import DefaultNavMenu from '../../../components/NavMenu/Desktop'
+import DefaultNavMenu from '../../../components/NavMenu'
 
 export const PageLayout = ({
   content: Content,

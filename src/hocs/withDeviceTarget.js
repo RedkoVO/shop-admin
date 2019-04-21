@@ -7,5 +7,6 @@ export default compose(
   mapProps(({ width, ...rest }) => ({
     ...rest,
     isMiniDisplay: ['xs', 'sm', 'md', 'lg'].includes(width),
+    isMobile: ['xs', 'sm'].includes(width)
   }))
 )
