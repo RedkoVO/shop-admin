@@ -24,7 +24,7 @@ const OrdersItem = ({
   onSubmit,
   isMiniDisplay
 }) => (
-  <div className={classes.root} key={data.id}>
+  <div className={classes.root}>
     <Form className={classes.shortContent} onSubmit={onSubmit}>
       <div className={cn(classes.id, 'field')}>
         {isMiniDisplay && 'id:'} {data.id}
@@ -40,6 +40,7 @@ const OrdersItem = ({
           component={InputField}
           placeholder="Name"
           className={classes.fieldEdit}
+          formName={`ordersItem-${data.id}`}
         />
       </div>
 
@@ -53,6 +54,7 @@ const OrdersItem = ({
           component={InputField}
           placeholder="Email"
           className={classes.fieldEdit}
+          formName={`ordersItem-${data.id}`}
         />
       </div>
 
@@ -66,6 +68,7 @@ const OrdersItem = ({
           component={InputField}
           placeholder="Phone"
           className={classes.fieldEdit}
+          formName={`ordersItem-${data.id}`}
         />
       </div>
 

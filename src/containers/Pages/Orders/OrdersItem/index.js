@@ -36,7 +36,6 @@ export default compose(
     },
 
     handleRemoveOrder: ({ dispatch }) => id => {
-      console.log('csfdsfdsf')
       dispatch(removeOrder(id))
         .then(res => {
           if (res.success) {

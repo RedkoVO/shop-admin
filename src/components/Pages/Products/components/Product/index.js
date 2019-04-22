@@ -5,8 +5,10 @@ import cn from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 import InputField from '../../../../App/Form/InputField'
+import TextField from '../../../../App/Form/TextField'
 import InputFileUpload from '../../../../App/Form/InputFileUpload'
 import EditableField from '../../../../App/Form/EditableField'
+import EditableTextField from '../../../../App/Form/EditableTextField'
 
 import ShowMoreIcon from '../../../../../assets/images/show_more.png'
 import RemoveIcon from '../../../../../assets/images/remove.png'
@@ -28,8 +30,8 @@ const Product = ({
   <div className={classes.root} key={data.id}>
     <Form className={classes.form} onSubmit={onSubmit}>
       <div className={classes.shortContent}>
-        <div className={classes.id}>id: {data.id}</div>
-        <div className={cn(classes.title, classes.alowEdit)}>
+        <div className={cn(classes.id, 'field')}>id: {data.id}</div>
+        <div className={cn(classes.title, classes.alowEdit, 'field')}>
           title:
           <EditableField
             text={data.title}
@@ -39,9 +41,10 @@ const Product = ({
             component={InputField}
             placeholder="Title"
             className={classes.fieldEdit}
+            formName={`product-${data.id}`}
           />
         </div>
-        <div className={cn(classes.price, classes.alowEdit)}>
+        <div className={cn(classes.price, classes.alowEdit, 'field')}>
           price:
           <EditableField
             text={data.price}
@@ -52,9 +55,10 @@ const Product = ({
             placeholder="Price"
             className={classes.fieldEdit}
             inputStyle={classes.fieldPrice}
+            formName={`product-${data.id}`}
           />
         </div>
-        <div className={cn(classes.price, classes.alowEdit)}>
+        <div className={cn(classes.price, classes.alowEdit, 'field')}>
           oldPrice:
           <EditableField
             text={data.email}
@@ -65,9 +69,10 @@ const Product = ({
             placeholder="Old price"
             className={classes.fieldEdit}
             inputStyle={classes.fieldPrice}
+            formName={`product-${data.id}`}
           />
         </div>
-        <div className={classes.image}>
+        <div className={cn(classes.image, 'field')}>
           <img src={data.images[0]} alt="" />
         </div>
 
@@ -99,14 +104,14 @@ const Product = ({
         <div className={classes.moreContent}>
           <div className={cn(classes.moreItem, classes.alowEdit)}>
             <span>description:</span>
-            <EditableField
+            <EditableTextField
               text={data.description}
               fieldId="description"
               fieldName="description"
-              type="text"
-              component={InputField}
+              component={TextField}
               placeholder="Description"
               className={classes.fieldEditDescription}
+              formName={`product-${data.id}`}
             />
           </div>
           <div className={cn(classes.moreItem, classes.alowEdit)}>

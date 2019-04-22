@@ -1,6 +1,6 @@
 import EditIcon from '../../../../../assets/images/edit.png'
 
-export default () => ({
+export default theme => ({
   root: {
     position: 'relative',
     padding: '0 10px',
@@ -15,7 +15,16 @@ export default () => ({
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'nowrap',
-    minHeight: '60px'
+    minHeight: '60px',
+
+    [theme.breakpoints.down('lg')]: {
+      alignItems: 'start',
+      flexDirection: 'column'
+    },
+
+    '& .field': {
+      padding: '10px 0'
+    }
   },
   edit: {
     width: '15px',
@@ -34,7 +43,15 @@ export default () => ({
   fieldEdit: {
     display: 'flex',
     alignItems: 'center',
-    marginLeft: '5px'
+    marginLeft: '5px',
+
+    '& input': {
+      paddingLeft: '5px',
+      height: '30px',
+      fontSize: '14px',
+      borderRadius: '5px',
+      border: '1px solid #e0e0e0'
+    }
   },
   fieldPrice: {
     width: '70px'
@@ -43,6 +60,15 @@ export default () => ({
     display: 'flex',
     alignItems: 'center',
     marginLeft: '5px',
+    width: '100%',
+
+    '& textarea': {
+      width: '100%',
+      height: '200px',
+      fontSize: '14px',
+      border: '1px solid #e0e0e0',
+      borderRadius: '5px'
+    },
 
     '& span': {
       width: '100%'
@@ -71,7 +97,11 @@ export default () => ({
     display: 'flex',
     alignItems: 'center',
     position: 'absolute',
-    right: '10px'
+    right: '10px',
+
+    [theme.breakpoints.down('lg')]: {
+      top: '23px'
+    }
   },
   remove: {
     width: '20px',

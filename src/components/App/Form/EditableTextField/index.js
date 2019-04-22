@@ -17,7 +17,6 @@ const EditableField = ({
   text,
   fieldId,
   fieldName,
-  type,
   component,
   placeholder,
   handleSubmit
@@ -28,7 +27,6 @@ const EditableField = ({
         <Field
           id={fieldId}
           name={fieldName}
-          type={type}
           component={component}
           placeholder={placeholder}
           className={inputStyle}
@@ -54,7 +52,6 @@ EditableField.propTypes = {
   text: PropTypes.string,
   fieldId: PropTypes.string.isRequired,
   fieldName: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   component: PropTypes.func,
   isEditable: PropTypes.bool.isRequired,

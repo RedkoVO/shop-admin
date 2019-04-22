@@ -43,7 +43,15 @@ export default theme => ({
   fieldEdit: {
     display: 'flex',
     alignItems: 'center',
-    marginLeft: '5px'
+    marginLeft: '5px',
+
+    '& input': {
+      paddingLeft: '5px',
+      height: '30px',
+      fontSize: '14px',
+      borderRadius: '5px',
+      border: '1px solid #e0e0e0'
+    }
   },
   id: {
     width: '50px'
