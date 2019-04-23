@@ -13,5 +13,14 @@ export default () => ({
   underline: {
     marginBottom: '20px',
     borderBottom: '2px solid #c3c3c3'
+  },
+  wrImage: {
+    display: 'flex',
+    alignItems: 'center',
+
+    '& img': {
+      width: '40px',
+      marginLeft: '10px'
+    }
   }
 })

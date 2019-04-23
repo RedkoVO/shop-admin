@@ -14,7 +14,9 @@ const Order = ({ classes, orderData }) => (
           {item.product && (
             <div className={classes.wrProduct}>
               <div>title: {item.product.title}</div>
-              <div>images: {item.product.images[0]}</div>
+              <div className={classes.wrImage}>
+                images: <img src={item.product.images[0]} alt="" />
+              </div>
               <div>price: {item.product.price}</div>
               <div>description: {item.product.description}</div>
               <div className={classes.underlineProduct} />

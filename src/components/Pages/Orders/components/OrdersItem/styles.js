@@ -77,6 +77,16 @@ export default theme => ({
       width: 'inherit'
     }
   },
+  payed: {
+    width: '100px',
+
+    '& .green': {
+      color: 'green'
+    },
+    '& .red': {
+      color: 'red'
+    }
+  },
   wrRightButtons: {
     display: 'flex',
     alignItems: 'center',

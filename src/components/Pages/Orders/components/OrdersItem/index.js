@@ -72,6 +72,15 @@ const OrdersItem = ({
         />
       </div>
 
+      <div className={cn(classes.payed, 'field')}>
+        {isMiniDisplay && 'payed:'}{' '}
+        {data.is_payed ? (
+          <span className="green">PAYED</span>
+        ) : (
+          <span className="red">NO</span>
+        )}
+      </div>
+
       <div className={classes.wrRightButtons}>
         {isConfirmRemoveOrder ? (
           <div className={classes.wrConfirmationRemove}>
