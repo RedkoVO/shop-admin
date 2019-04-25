@@ -11,7 +11,9 @@ const orders = (state = initialState, action) => {
     case FETCH_ORDERS:
       return {
         ...state,
-        orders: payload.orders
+        orders: payload.orders,
+        page: payload.page,
+        pages: payload.pages
       }
     default:
       return state

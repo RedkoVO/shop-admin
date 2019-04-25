@@ -27,4 +27,66 @@ export default () => ({
   name: {
     width: '265px'
   },
+  sort: {
+    width: '20px',
+    cursor: 'pointer',
+
+    '& img': {
+      width: '100%'
+    }
+  },
+  pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+
+    '& ul': {
+      display: 'inline-block',
+      paddingLeft: 0,
+      margin: '20px 0',
+      borderRadius: '4px',
+
+      '& li': {
+        display: 'inline',
+
+        '& a': {
+          position: 'relative',
+          float: 'left',
+          padding: '6px 12px',
+          lineHeight: '1.4',
+          textDecoration: 'none',
+          color: '#337ab7',
+          backgroundColor: '#fff',
+          border: '1px solid #ddd',
+
+          '&:first-child': {
+            marginLeft: 0
+          }
+        },
+        '& span': {
+          position: 'relative',
+          float: 'left',
+          padding: '6px 12px',
+          lineHeight: '1.4',
+          textDecoration: 'none',
+          color: '#337ab7',
+          backgroundColor: '#fff',
+          border: '1px solid #ddd',
+
+          '&:first-child': {
+            marginLeft: 0
+          }
+        }
+      }
+    },
+
+    '& .active': {
+      '& a': {
+        color: '#fff',
+        backgroundColor: '#337ab7',
+        borderColor: '#337ab7',
+        cursor: 'default',
+        zIndex: 3
+      }
+    }
+  }
 })

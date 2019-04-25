@@ -6,5 +6,9 @@ export default {
     MD: 640,
     SM: 420,
     XS: 0
+  },
+  pagination: {
+    itemPerPage: 10,
+    pageRangeDisplayed: 5
   }
 }

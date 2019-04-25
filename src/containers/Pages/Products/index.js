@@ -38,7 +38,9 @@ import Products from '../../../components/Pages/Products/Desktop'
 const FORM_NAME = 'newProduct'
 
 const mapStateToProps = state => ({
-  productsData: state.products.products
+  productsData: state.products.products,
+  page: state.products.page,
+  pages: state.products.pages
 })
 
 export default compose(
@@ -48,7 +50,13 @@ export default compose(
   }),
   withState('isAddProduct', 'setAddProduct', false),
   withState('imagesUploaded', 'setImage', []),
+  withState('activePage', 'setPage', 1),
   withHandlers({
+    handlePageChange: ({ setPage, dispatch }) => pageNumber => {
+      setPage(pageNumber)
+      dispatch(fetchProducts(pageNumber))
+    },
+
     handleUploadImage: ({ setImage }) => e => {
       const images = []
 

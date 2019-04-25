@@ -9,10 +9,11 @@ const products = (state = initialState, action) => {
 
   switch (type) {
     case FETCH_PRODUCTS:
-
       return {
         ...state,
-        products: payload.products
+        products: payload.products,
+        page: payload.page,
+        pages: payload.pages
       }
     default:
       return state

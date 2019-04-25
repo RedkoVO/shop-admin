@@ -4,7 +4,7 @@ import axios from 'axios'
 import gC from '../../constants'
 
 /* FETCH ORDERS */
-export const fetchOrders = () => async dispatch => {
+export const fetchOrders = (page, order) => async dispatch => {
   const token = localStorage.getItem('token')
 
   try {
@@ -15,7 +15,9 @@ export const fetchOrders = () => async dispatch => {
         'Content-Type': 'application/x-www-form-urlencoded',
         token: token ? token : ''
       },
-      url: `${gC.API_URL}/api/orders`
+      url: `${gC.API_URL}/api/orders?page=${page ? page : 1}${
+        order ? '&order=' : ''
+      }${order ? order : ''}`
     })
     dispatch(createFetchOrdersSuccess(res.data))
     return res.data
@@ -29,6 +31,8 @@ export const createFetchOrdersSuccess = data => {
     type: FETCH_ORDERS,
     payload: {
       orders: data.models,
+      page: data.page,
+      pages: data.pages,
       success: data.success
     }
   }
@@ -37,21 +41,15 @@ export const createFetchOrdersSuccess = data => {
 /* UPDATE ORDER */
 export const updateOrder = (data, id) => async () => {
   const token = localStorage.getItem('token')
-  // const bodyFormData = new FormData()
-  // bodyFormData.set('name', data.name)
-  // bodyFormData.set('email', data.email)
-  // bodyFormData.set('phone', data.phone)
 
   try {
     const res = await axios({
       method: 'post',
       headers: {
         Accept: 'application/json',
-        // 'Content-Type': 'multipart/form-data',
         'Content-Type': 'application/x-www-form-urlencoded',
         token: token ? token : ''
       },
-      // data: bodyFormData,
       data: data,
       url: `${gC.API_URL}/api/orders?id=${id}`
     })
